@@ -6,8 +6,10 @@ import { signinValidationSchema } from "./signinFormValidation";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../../redux/slices";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const SigninForm = () => {
+    const {t} = useTranslation();
   const {
     control,
     handleSubmit,
@@ -63,7 +65,7 @@ export const SigninForm = () => {
         }}
       />
       <Button disabled={!isValid} onClick={handleSubmit(onSignin)}>
-        sign in
+        {t("signin")}
       </Button>
     </FormContainer>
   );

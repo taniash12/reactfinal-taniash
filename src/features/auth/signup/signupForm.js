@@ -6,8 +6,10 @@ import { Button, FormContainer, Input } from "../../../components/atoms";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../../redux/slices";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const SignupForm = () => {
+    const {t} = useTranslation();
   const {
     control,
     formState: { errors, isValid },
@@ -94,7 +96,7 @@ export const SignupForm = () => {
         }}
       />
       <Button disabled={!isValid} onClick={handleSubmit(onSignup)}>
-        signup
+        {t("signup")}
       </Button>
     </FormContainer>
   );
