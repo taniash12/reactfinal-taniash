@@ -17,13 +17,21 @@ const RoutesComponent = () => {
         { path: "/signup", element: <SignupPage /> },
         { path: "/", element: <HomePage /> },
         {
-          path: "/product/new",
+          path: "/products/new",
           element: (
             <ProtectedRoute hasAccess={isUserAdmin(userData)}>
               <ProductFormPage />
             </ProtectedRoute>
           ),
         },
+        {
+            path: "/products/:id/edit",
+            element: (
+                <ProtectedRoute hasAccess={isUserAdmin(userData)}>
+                  <ProductFormPage />
+                </ProtectedRoute>
+              ),
+        }
       ])}
     </div>
   );

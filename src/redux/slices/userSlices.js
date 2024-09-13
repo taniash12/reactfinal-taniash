@@ -7,6 +7,8 @@ export const authenticateUser = createAsyncThunk(
     try {
       const endpoint = `/users/${isSignin ? "login" : "register"}`;
       const { data } = await axiosInstance.post(endpoint, formValues);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("refreshToken", data.refreshToken);
       return data.user;
     } catch (error) {
       rejectWithValue(error?.responce?.data?.message);

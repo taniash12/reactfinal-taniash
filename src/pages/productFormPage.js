@@ -1,9 +1,6 @@
 import React from 'react'
+import { ProductForm } from '../features/products/productForm'
 
 export const ProductFormPage = () => {
-  return (
-    <div>
-      productFormPage
-    </div>
-  )
+  return <ProductForm/>
 }
